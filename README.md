@@ -16,19 +16,8 @@ It works just like Whitted-style raytracing does, but with the added benefits of
 For the terrain, I utilized JAXA's AW3D30 to pull a mountainous chunk of terrain from around the location of Tuva in Russia, as it gives some moderate mountains along with some steppe good for testing long-distance graphics.
 
 ## Caustics
-One of the main downsides that comes with the usage of deterministic ray tracing is the lack of caustics. While normally caustics provide an extremely beautiful aspect to glass, in this renderer they would ordinarily be completely absent. However, we have a not-so-simple answer to this issue:
-
-$$\Large E(\mathbf{x}_2) = \sum_{u \in \mathbf{x}_2^{-1}} \frac{E_{\text{inc}}(\mathbf{x}_1) \cdot \mathcal{T}_F \cdot \cos\theta_i}{\mathcal{J}(u)}$$
-
-In short:
-
-$$\Large E(\mathbf{x}_2) = \sum \frac{\text{Light entering}}{\text{How much it was concentrated}}$$
-
-It determines how much light entered the glass and from where, and then calculates how much it was concentrated, thus producing a caustic map that can be displayed. Caustics, hooray!
-
-I cannot, myself, pretend to fully understand this formula, however. See the AI section for more information.
-However, it does create great on-the-fly caustics.
+One of the main downsides that comes with the usage of deterministic ray tracing is the lack of caustics. While normally caustics provide an extremely beautiful aspect to glass, in this renderer they would ordinarily be completely absent. However, we have solved this issue in this code. Caustics, yay!
 
 ## Use of Artificial Intelligence
 This project was heavily supported by my use of Gemini's latest models through Google's AI Studio. As I am not a programmer by trade, I simply designed the application and the ways it should be used, performed research, and generally produced a blueprint on how it should be built.
-Gemini assisted me by getting in the dirt and producing the actual code that would be run in order to create such a beautiful image. All of the things that I instructed it to do were thoroughly researched ahead of time (if I hadn't done this, I would have been completely unable to explain the function provided above)
+Gemini assisted me by getting in the dirt and producing the actual code that would be run in order to create such a beautiful image. All of the things that I instructed it to do were thoroughly researched ahead of time.
